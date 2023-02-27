@@ -8,7 +8,7 @@ public class MovePlayer : MonoBehaviour
     [Header("Variables for the movement")]
     public float MoveH;
     public float MoveV;
-    public float speed;
+    public float speed = 2f;
     public float angleRotation;
     Rigidbody rb;
 
@@ -21,10 +21,10 @@ public class MovePlayer : MonoBehaviour
  
     void Start()
     {
-        speed = 2f;
+     //   speed = 2f;
         angleRotation = 150f;
         rb = GetComponent<Rigidbody>();
-       animator= GetComponent<Animator>();
+        animator= GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -34,8 +34,8 @@ public class MovePlayer : MonoBehaviour
         MoveH = Input.GetAxis("Horizontal"); //Para que regrese un valor a 1 si se ueve en el axis horizontal
         MoveV = Input.GetAxis("Vertical"); //Regresa el valor de 1 si se mueve en el axis vertical
         MoveFPC();
-        setAnimation();
-
+        SetAnimation();
+      
 
     }
 
@@ -47,37 +47,45 @@ public class MovePlayer : MonoBehaviour
             direction.Normalize();
 
             movement = direction * speed;
+            Debug.Log(speed);
             transform.Rotate((transform.up * MoveH) * angleRotation * Time.fixedDeltaTime);
         }
         movement.y = rb.velocity.y;
         rb.velocity = movement;
     }
 
-    public void setAnimation()
+    public void SetAnimation()
     {
         if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
-            speed = 4f;
+           
             animator.SetBool("isWalking", true);
+            animator.SetBool("isRunnig", false);
+            animator.SetBool("isSneaking", false);
+
+            speed = 4f;
         }
         else
         {
-            speed = 2f;
             animator.SetBool("isWalking", false);
+            animator.SetBool("isRunnig", false);
+            animator.SetBool("isSneaking", false);
         }
-
         if (Input.GetKey(KeyCode.RightShift) && Input.GetKey(KeyCode.W))
         {
+            Debug.Log("Hola");
             speed = 6f;
             animator.SetBool("isRunnig", true);
-           
-
+            animator.SetBool("isSneaking", false);
+            animator.SetBool("isWalking", false);
         }
-        else
+        
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W))
         {
             speed = 2f;
+            animator.SetBool("isSneaking", true);
+            animator.SetBool("isWalking", false);
             animator.SetBool("isRunnig", false);
-
         }
         
     }
