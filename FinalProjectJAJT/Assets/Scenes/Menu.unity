@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2149.137, g: 2189.74, b: 2370.2908, a: 1}
+  m_IndirectSpecularColor: {r: 2154.8342, g: 2195.6409, b: 2376.3528, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -856,14 +856,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1766309577}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 28.5, y: 11.1, z: -8}
+  m_LocalRotation: {x: 0.77402073, y: 0.20375293, z: 0.599425, w: -0.008148433}
+  m_LocalPosition: {x: 4.09, y: 11.1, z: -22.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: -14.885, y: 106.919, z: 161.563}
 --- !u!114 &1766309580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1100,7 +1100,7 @@ GameObject:
   - component: {fileID: 1798994214}
   - component: {fileID: 1798994213}
   m_Layer: 0
-  m_Name: mANAGER
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
